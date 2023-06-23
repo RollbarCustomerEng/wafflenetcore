@@ -27,13 +27,25 @@ namespace wafflenetcore.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+            int x = 0;
+            int y = -1;
+
+            try {
+
+                return Enumerable.Range(x, y).Select(index => new WeatherForecast
+                {
+                    Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+                    TemperatureC = Random.Shared.Next(-20, 55),
+                    Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+                }).ToArray();
+
+            } catch (Exception ex) {
+                RollbarLocator.RollbarInstance.Critical(ex);
+
+                return Enumerable.Empty<WeatherForecast>();
+            }
+
+
         }
     }
 }
