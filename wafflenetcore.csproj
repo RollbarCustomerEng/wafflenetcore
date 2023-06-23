@@ -7,8 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.3" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.8" />
+    <PackageReference Include="Rollbar" Version="5.2.0" />
+    <PackageReference Include="Rollbar.App.Config" Version="5.2.0" />
+    <PackageReference Include="Rollbar.AppSettings.Json" Version="5.2.0" />
+    <PackageReference Include="Rollbar.NetCore.AspNet" Version="5.2.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
 </Project>
