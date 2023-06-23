@@ -1,4 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using Rollbar;
+using Rollbar.AppSettings;
+
 
 namespace wafflenetcore.Controllers
 {
@@ -16,6 +19,9 @@ namespace wafflenetcore.Controllers
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
             _logger = logger;
+
+            RollbarLocator.RollbarInstance.Configure(new RollbarLoggerConfig("7b340a9146d04bd2be796a7f9fe9443e", "development") {  });
+            RollbarLocator.RollbarInstance.Info("NET Core Controller Loaded");
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
